@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sem/Codes/S_Laucher.cs.meta
+guid: 2f929ecfe4f13d44d9945db3ccdab740
+========
+guid: 917536bdfdc52b34a93784836f5e566b
+>>>>>>>> origin/main:Assets/Scripts/CameraMovement.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
