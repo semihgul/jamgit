@@ -16,7 +16,6 @@ public class S_Laucher : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_InputField InputFieldName;
     [SerializeField] private TMP_InputField InputFieldRoomName;
 
-
     private bool isConnecting;
     RoomNames _roomNames;
 
@@ -122,8 +121,10 @@ public class S_Laucher : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
             {
                 roomPlayersText.text = "Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
+                PhotonNetwork.LoadLevel("mp_area_test");
 
-                Debug.LogWarning("game starting in a eterntty");
+                break;
+
             }
         }
     }

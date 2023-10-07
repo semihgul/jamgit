@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f929ecfe4f13d44d9945db3ccdab740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayers: 4
+  maxPlayers: 2
   controlPanel: {fileID: 589125599}
   readyPanel: {fileID: 623459302}
   InputFieldName: {fileID: 140089914}
