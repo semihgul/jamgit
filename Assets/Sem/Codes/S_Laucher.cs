@@ -12,6 +12,7 @@ public class S_Laucher : MonoBehaviourPunCallbacks
 {
     [SerializeField] private byte maxPlayers = 4;
     [SerializeField] private GameObject controlPanel;
+    [SerializeField] private GameObject readyPanel;
     [SerializeField] private TMP_InputField InputFieldName;
     [SerializeField] private TMP_InputField InputFieldRoomName;
 
@@ -43,6 +44,7 @@ public class S_Laucher : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = InputFieldName.text;
         Debug.Log("Your new name is " + PhotonNetwork.NickName);
     }
+
     public void Connect()
     {
         isConnecting = true;
@@ -107,6 +109,23 @@ public class S_Laucher : MonoBehaviourPunCallbacks
         Debug.Log("Room name: " + PhotonNetwork.CurrentRoom.Name + " baglandi");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
         roomPlayersText.text = "Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
-        //PhotonNetwork.LoadLevel("PunBasics-Room for 1");
+        StartCoroutine(CheckGame());
+        readyPanel.SetActive(true);
     }
+
+
+    private IEnumerator CheckGame()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+            {
+                roomPlayersText.text = "Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
+
+                Debug.LogWarning("game starting in a eterntty");
+            }
+        }
+    }
+
 }
