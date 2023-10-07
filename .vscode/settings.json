@@ -52,5 +52,9 @@
         "temp/":true,
         "Temp/":true
     },
+<<<<<<< HEAD
     "dotnet.defaultSolution": "amgit.sln"
+=======
+    "dotnet.preferCSharpExtension": true
+>>>>>>> 0923c459ddb87f85e2bf838ff8c8cda13ae3ed5b
 }
