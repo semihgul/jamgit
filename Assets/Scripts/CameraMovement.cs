@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 
 
@@ -12,6 +14,12 @@ public class CameraMovement : MonoBehaviour
     private InputAction movement;
     private Transform cameraTransform;
     private Transform cameraTransform2;
+    public Transform target;
+    private float _camSize;
+    private Camera _cam;
+    public AnimationCurve zoomCurve;
+
+
 
 
     [Header("Horizontal Translation")]
@@ -49,17 +57,22 @@ public class CameraMovement : MonoBehaviour
     private Vector3 lastPosition;
     Vector3 startDrag;
 
+    bool zooming;
+    public float durationZoom = 1f;
+
     private void Awake()
     {
         cameraActions = new NewControls();
         cameraTransform = this.GetComponentInChildren<Camera>().transform;
         cameraTransform2 = this.transform;
+        _cam = this.GetComponentInChildren<Camera>();
+        _camSize = this.GetComponentInChildren<Camera>().orthographicSize;
     }
 
     private void OnEnable()
     {
-        zoomHeight = cameraTransform.localPosition.y;
-        cameraTransform.LookAt(this.transform);
+        zoomHeight = this.GetComponentInChildren<Camera>().orthographicSize;
+        cameraTransform.LookAt(target);
 
 
         lastPosition = this.transform.position;
@@ -77,6 +90,7 @@ public class CameraMovement : MonoBehaviour
     }
     void Update()
     {
+
         GetKeyboardMovement();
         if (useScreeEdge)
             CheckMouseAtScreenEdge();
@@ -124,23 +138,40 @@ public class CameraMovement : MonoBehaviour
     private void ZoomCamera(InputAction.CallbackContext inputValue)
     {
         float value = -inputValue.ReadValue<Vector2>().y / 100f;
+        Debug.Log(value);
         if (Mathf.Abs(value) > 0.1f)
         {
-            zoomHeight = cameraTransform.localPosition.y + value * stepSize;
+            Debug.Log("wıth abs " + value);
+            zoomHeight = _camSize + value * stepSize;
             if (zoomHeight < minHeight)
+            {
+                // StartCoroutine(ZoomAnim());
                 zoomHeight = minHeight;
+            }
+
             else if (zoomHeight > maxHeight)
+            {
+                //StartCoroutine(ZoomAnim());
                 zoomHeight = maxHeight;
+
+            }
         }
 
     }
     private void UpdateCameraPosition()
     {
+        if (zooming)
+        {
+            return;
+        }
 
-        Vector3 zoomTarget = new Vector3(cameraTransform.localPosition.x, zoomHeight, cameraTransform.localPosition.z);
-        zoomTarget -= zoomSpeed * (zoomHeight - cameraTransform.localPosition.y) * Vector3.forward;
-        cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, zoomTarget, Time.deltaTime * zoomDampening);
-        cameraTransform.LookAt(this.transform);
+        float scrollDelta = Input.mouseScrollDelta.y;
+        if (Mathf.Abs(scrollDelta) > 0.1f)
+        {
+            float targetZoom = _cam.orthographicSize - (scrollDelta * zoomSpeed);
+            targetZoom = Mathf.Clamp(targetZoom, minHeight, maxHeight);
+            StartCoroutine(ZoomCamera(targetZoom));
+        }
     }
     private void GetKeyboardMovement()
     {
@@ -201,5 +232,20 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    public IEnumerator ZoomCamera(float targetZoom)
+    {
+        zooming = true;
+        float startZoom = _cam.orthographicSize;
+        float timer = 0f;
 
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * zoomSpeed;
+            float zoomAmount = Mathf.Lerp(startZoom, targetZoom, zoomCurve.Evaluate(timer));
+            _cam.orthographicSize = zoomAmount;
+            yield return null;
+        }
+        zooming = false;
+
+    }
 }

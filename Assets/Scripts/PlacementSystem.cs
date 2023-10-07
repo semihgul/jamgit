@@ -18,6 +18,6 @@ private void Update()
     
     
     mouseIndicator.transform.position= mousePosition;
-    cellIndicator.transform.position=grid.CellToWorld(gridPosition)+new Vector3(0,1.75f,0);
+    cellIndicator.transform.position=grid.CellToWorld(gridPosition)+new Vector3(1f,-0.99f,1f);
 }
 }
