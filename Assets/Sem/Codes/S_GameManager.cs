@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +11,11 @@ using UnityEngine.SceneManagement;
 
 public class S_GameManager : MonoBehaviourPunCallbacks
 {
+    
+    public Player[] players;
+    public Transform team1Pos;
+    public Transform team2Pos;
 
-    public GameObject Team1;
-    public GameObject Team2;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         if (!PhotonNetwork.IsConnected)
@@ -24,23 +23,25 @@ public class S_GameManager : MonoBehaviourPunCallbacks
             SceneManager.LoadScene("loby");
             return;
         }
-        if (Team1 == null || Team2 == null)
-        {
-            Debug.LogError("Gama manager can not find the team prefabs");
-        }
-    }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        Debug.Log(newPlayer.NickName + "is enter the game");
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Team1.GetComponent<TeamManager>().SetPlayer(newPlayer);
-        }
         else
-        {
-            Team2.GetComponent<TeamManager>().SetPlayer(newPlayer);
-        }
+            GetPlayers();
+
+    }
+    public void GetPlayers()
+    {
+
+        players = PhotonNetwork.PlayerList; 
+
+        GameObject pl1 = PhotonNetwork.Instantiate("Player", team1Pos.position, Quaternion.identity);
+        pl1.GetComponent<TeamManager>().SetPlayer(players[0],TeamManager.Team.blueTeam);
+
+        GameObject pl2 = PhotonNetwork.Instantiate("Player", team2Pos.position, Quaternion.identity);
+        pl2.GetComponent<TeamManager>().SetPlayer(players[1],TeamManager.Team.redTeam);
+
+
+
+
+
 
     }
 }

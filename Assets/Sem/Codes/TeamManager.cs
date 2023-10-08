@@ -8,8 +8,27 @@ using Photon.Realtime;
 
 public class TeamManager : MonoBehaviourPunCallbacks
 {
-    public void SetPlayer(Player player)
+    public enum Team
     {
-        Debug.Log("Mark the player " + player.NickName);
+        blueTeam,
+        redTeam
+    }
+    public Team PlayersTeam;
+
+
+    public void SetPlayer(Player player, Team team)
+    {
+        if (team == Team.blueTeam)
+        {
+            PlayersTeam = Team.blueTeam;
+            Debug.Log(player.NickName + " 's team is blue");
+        }
+        else
+        {
+            PlayersTeam = Team.redTeam;
+            Debug.Log(player.NickName + " 's team is red");
+        }
+
     }
 }
+
