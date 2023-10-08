@@ -53,5 +53,6 @@
     },
     "amgit.sln=======dotnet.preferCSharpExtension": "true>>>>>>>0923c459ddb87f85e2bf838ff8c8cda13ae3ed5b",
     "dotnet.defaultSolution": "jamgit.sln",
-    "cmake.sourceDirectory": "C:/Users/MSİ-NB/Desktop/gitjam/jamgit/ibrary/PackageCache/com.unity.ide.visualstudio@2.0.21/Editor/COMIntegration/COMIntegration~"
+    "cmake.sourceDirectory": "C:/Users/MSİ-NB/Desktop/gitjam/jamgit/ibrary/PackageCache/com.unity.ide.visualstudio@2.0.21/Editor/COMIntegration/COMIntegration~",
+    "dotnet.preferCSharpExtension": true
 }
