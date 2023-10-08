@@ -38,9 +38,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private float stepSize = 2f;
     [SerializeField]
-    private float maxHeight = 11f;
+    private float zoomDampening = 7.5f;
     [SerializeField]
-    private float minHeight = 6f;
+    private float maxHeight = 10f;
+    [SerializeField]
+    private float minHeight = 10f;
     [SerializeField]
     private float zoomSpeed = 2f;
 
@@ -57,6 +59,7 @@ public class CameraMovement : MonoBehaviour
     Vector3 startDrag;
 
     bool zooming;
+    public float durationZoom = 1f;
 
     private void Awake()
     {
@@ -143,18 +146,22 @@ public class CameraMovement : MonoBehaviour
     private void ZoomCamera(InputAction.CallbackContext inputValue)
     {
         float value = -inputValue.ReadValue<Vector2>().y / 100f;
+        Debug.Log(value);
         if (Mathf.Abs(value) > 0.1f)
         {
+            Debug.Log("wıth abs " + value);
             zoomHeight = _camSize + value * stepSize;
             if (zoomHeight < minHeight)
             {
+                // StartCoroutine(ZoomAnim());
                 zoomHeight = minHeight;
             }
 
             else if (zoomHeight > maxHeight)
             {
+                //StartCoroutine(ZoomAnim());
                 zoomHeight = maxHeight;
-                
+
             }
         }
 
@@ -247,5 +254,6 @@ public class CameraMovement : MonoBehaviour
             yield return null;
         }
         zooming = false;
+
     }
 }

@@ -15,21 +15,18 @@ MonoBehaviour:
   objectData:
   - <Name>k__BackingField: Ev1
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 2, y: 2}
-    <prefab>k__BackingField: {fileID: 1228457491369595780, guid: 0d3d1895e32977947b3b39d01af08b08,
+    <Size>k__BackingField: {x: 1, y: 1}
+    <prefab>k__BackingField: {fileID: 8550575893308598660, guid: d3b5829efd4cb7947bd8fdc99d8aa2bf,
       type: 3}
-  - <Name>k__BackingField: Ev2
-    <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 2, y: 2}
-    <prefab>k__BackingField: {fileID: 4328778570092637392, guid: 6acb606f1b8ed2f489c2e9644479943a,
-      type: 3}
-  - <Name>k__BackingField: Ev3
-    <ID>k__BackingField: 2
-    <Size>k__BackingField: {x: 2, y: 2}
-    <prefab>k__BackingField: {fileID: 3012526369324135033, guid: abec5d07da0c9414c9425fba53954381,
-      type: 3}
-  - <Name>k__BackingField: Ev4
-    <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 2, y: 2}
-    <prefab>k__BackingField: {fileID: 8698305764730309631, guid: e2bb9618c9d99c2459f24eb0d8f4edec,
-      type: 3}
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <prefab>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <prefab>k__BackingField: {fileID: 0}
+  - <Name>k__BackingField: 
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 0, y: 0}
+    <prefab>k__BackingField: {fileID: 0}
