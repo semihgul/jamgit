@@ -13,22 +13,8 @@ public class TeamManager : MonoBehaviourPunCallbacks
         blueTeam,
         redTeam
     }
-    public Team PlayersTeam;
-
-
-    public void SetPlayer(Player player, Team team)
+    public void SetPlayer(Player player)
     {
-        if (team == Team.blueTeam)
-        {
-            PlayersTeam = Team.blueTeam;
-            Debug.Log(player.NickName + " 's team is blue");
-        }
-        else
-        {
-            PlayersTeam = Team.redTeam;
-            Debug.Log(player.NickName + " 's team is red");
-        }
-
+        Debug.Log("Mark the player " + player.NickName);
     }
 }
-
