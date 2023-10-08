@@ -79,12 +79,10 @@ MonoBehaviour:
   acceleration: 10
   damping: 15
   stepSize: 1
-  zoomDampening: 3
   maxHeight: 10
   minHeight: 6
   zoomSpeed: 2
   edgeTolarence: 0.1
-  durationZoom: 1
 --- !u!114 &4646112009788004747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f08ca3636f72a4596dbaab5f54811e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 2f246069527d6ec41ac27641f5ffe0ea, type: 2}
   PlayersTeam: 0
 --- !u!1 &3649867152456664992
 GameObject:
@@ -230,7 +229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2f246069527d6ec41ac27641f5ffe0ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
