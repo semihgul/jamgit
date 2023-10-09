@@ -66,11 +66,11 @@ public class CameraMovement : MonoBehaviour
         cameraTransform2 = this.transform;
         _cam = this.GetComponentInChildren<Camera>();
         _camSize = this.GetComponentInChildren<Camera>().orthographicSize;
-          if(!this.GetComponent<PhotonView>().IsMine)
+         /*if(!this.GetComponent<PhotonView>().IsMine)
         {
             this.GetComponent<CameraMovement>().enabled = false;
             cameraTransform.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     private void OnEnable()

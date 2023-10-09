@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CreateMenu
+  - InputManager
+  - MilitaryBase
+  - TownCenter
+  - TownCenterMenu
+  - MilitaryBaeMenu
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -12,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Selectable
-  - 
+  - Build
   - 
   - 
   - 

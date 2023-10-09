@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4530293777826087147}
-  m_Layer: 3
+  - component: {fileID: 1707939709778620115}
+  - component: {fileID: 8331290498873295351}
+  m_Layer: 7
   m_Name: "K\xF6yBinas\u01311"
-  m_TagString: Untagged
+  m_TagString: TownCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +34,42 @@ Transform:
   - {fileID: 3838209609836460132}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1707939709778620115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149233429532865557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.318176, y: 3.680965, z: 5.3111506}
+  m_Center: {x: 0.020430565, y: 1.6821165, z: 0.06831829}
+--- !u!114 &8331290498873295351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149233429532865557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f603f7491a01724baff679f1e3d7c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputManager: {fileID: 0}
+  PS: {fileID: 0}
+  ID: 0
 --- !u!1001 &3661063866814013327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ea5a71609da7af344b0fd49dd5c13ef4,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

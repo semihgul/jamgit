@@ -21,7 +21,7 @@ MonoBehaviour:
   - <Name>k__BackingField: Ev2
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 3, y: 3}
-    <prefab>k__BackingField: {fileID: 4328778570092637392, guid: 6acb606f1b8ed2f489c2e9644479943a,
+    <prefab>k__BackingField: {fileID: 2077479863849238109, guid: 8dcc142f5499f7545a94566f7c480dd5,
       type: 3}
   - <Name>k__BackingField: Ev3
     <ID>k__BackingField: 2
@@ -32,9 +32,4 @@ MonoBehaviour:
     <ID>k__BackingField: 3
     <Size>k__BackingField: {x: 2, y: 2}
     <prefab>k__BackingField: {fileID: 8698305764730309631, guid: e2bb9618c9d99c2459f24eb0d8f4edec,
-      type: 3}
-  - <Name>k__BackingField: "K\xF6yBinas\u01311"
-    <ID>k__BackingField: 4
-    <Size>k__BackingField: {x: 4, y: 4}
-    <prefab>k__BackingField: {fileID: 3149233429532865557, guid: d3a93f8ffd7d03b4097cb6d708831bf6,
       type: 3}
