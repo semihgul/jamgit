@@ -7,11 +7,11 @@ using TMPro;
 using Photon.Realtime;
 using Photon.Pun;
 
-
 public class S_Laucher : MonoBehaviourPunCallbacks
 {
     [SerializeField] private byte maxPlayers = 4;
     [SerializeField] private GameObject controlPanel;
+    
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private TMP_InputField InputFieldName;
     [SerializeField] private TMP_InputField InputFieldRoomName;
@@ -22,6 +22,7 @@ public class S_Laucher : MonoBehaviourPunCallbacks
     public TMP_Text roomNameText;
     public TMP_Text roomPlayersText;
 
+    public GameObject RoomSlot;
 
     private void Awake()
     {
@@ -33,11 +34,13 @@ public class S_Laucher : MonoBehaviourPunCallbacks
         controlPanel.SetActive(true);
         Debug.Log("Esenlikler");
     }
+
     public string GetRandomName()
     {
         _roomNames = (RoomNames)Random.Range(0, System.Enum.GetNames(typeof(RoomNames)).Length);
         return _roomNames.ToString();
     }
+
     public void ChangeName()
     {
         PhotonNetwork.NickName = InputFieldName.text;
@@ -49,7 +52,6 @@ public class S_Laucher : MonoBehaviourPunCallbacks
         isConnecting = true;
         controlPanel.SetActive(false);
 
-
         if (PhotonNetwork.IsConnected)
         {
             PhotonNetwork.JoinRandomRoom();
@@ -59,6 +61,8 @@ public class S_Laucher : MonoBehaviourPunCallbacks
             PhotonNetwork.GameVersion = "1.0";
             PhotonNetwork.ConnectUsingSettings();
         }
+        PhotonNetwork.JoinLobby(); // Lobby'ye bağlanma işlemi
+
     }
 
     public void ConnectWithName()
@@ -88,9 +92,8 @@ public class S_Laucher : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-
         controlPanel.SetActive(true);
-        Debug.Log("baglnati kesildi");
+        Debug.Log("Bağlantı kesildi");
         isConnecting = false;
     }
 
@@ -99,19 +102,17 @@ public class S_Laucher : MonoBehaviourPunCallbacks
         Debug.Log("There is no room like that. Creating one");
 
         PhotonNetwork.CreateRoom(GetRandomName(), new Photon.Realtime.RoomOptions { MaxPlayers = maxPlayers });
-
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room");
-        Debug.Log("Room name: " + PhotonNetwork.CurrentRoom.Name + " baglandi");
+        Debug.Log("Room name: " + PhotonNetwork.CurrentRoom.Name + " bağlandı");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
         roomPlayersText.text = "Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
         StartCoroutine(CheckGame());
         readyPanel.SetActive(true);
     }
-
 
     private IEnumerator CheckGame()
     {
@@ -122,11 +123,8 @@ public class S_Laucher : MonoBehaviourPunCallbacks
             {
                 roomPlayersText.text = "Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
                 PhotonNetwork.LoadLevel("mp_area_test");
-
                 break;
-
             }
         }
     }
-
 }
