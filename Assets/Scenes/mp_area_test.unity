@@ -252,7 +252,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f246069527d6ec41ac27641f5ffe0ea, type: 2}
+  - {fileID: 2100000, guid: c806558e5a61ace4a813e74dd82fdd31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -676,6 +676,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351875bcede4461439f586a8811e53e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  selectableMasks:
+    serializedVersion: 2
+    m_Bits: 0
+  selectionBox: {fileID: 0}
 --- !u!4 &1702723040
 Transform:
   m_ObjectHideFlags: 0
